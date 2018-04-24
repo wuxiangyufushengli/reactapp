@@ -1,0 +1,42 @@
+.footer1_guide {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    height: 50px;
+    display: flex;
+}
+.footer1_guide>a{
+    flex: 1;
+}
+.guide_item {
+    display: flex;
+    flex: 1;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+
+}
+.footer_guide > .on {
+    color: #97C78F
+}
+.guide_item > span {
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 2px
+}
+.iconfont {
+    font-size: 25px
+}
+.footer1_guide>a.active{
+    color:green;
+}
+.imgs img{
+    width: 100%;
+}
+html,body{
+    overflow-x: hidden;
+}

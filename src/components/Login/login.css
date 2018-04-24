@@ -1,0 +1,193 @@
+#app{
+    background-color:#F5F5F5;
+}
+.isshow{
+    display: block;
+}
+.rightnumber{
+    color:black
+}
+.login_bg {
+    height: 180px;
+    background: url("https://www.itsolotime.com/img/login_bg.png") no-repeat;
+    background-size: 100% 100%;
+}
+.aback {
+    background-size: 9px 17px;
+    display: block;
+    width: 22px;
+    height: 20px;
+    position: absolute;
+    margin-top: 16px;
+    color: white;
+}
+.login_bg .zfont {
+    right: 10px;
+}
+.zfont {
+    position: absolute;
+    right: 2.5em;
+    top: 19px;
+}
+.zfont a {
+    color: white;
+}
+.es_por4 {
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-top: -44px;
+    height: 44px;
+}
+.login_style li a {
+    font-size: 15px;
+    color: #fff;
+    display: block;
+}
+.login_style li {
+    float: left;
+    width: 50%;
+    text-align: center;
+    height: 44px;
+    line-height: 44px;
+    position: relative;
+}
+.bgfff {
+    background: #fff;
+}
+.mformBox {
+    background: #fff;
+    border-radius: 0.5em;
+    margin: 0em 4% 1em 4%;
+    padding: 0 1.6%;
+}
+.mform li input {
+    height: 21px;
+    font-size: 15px;
+    border: none;
+    padding: 0px;
+    color: #666;
+    font-family: "Microsoft Yahei", tahoma, arial;
+    outline: none;
+}
+input[type="text"] {
+    height: 30px;
+    -webkit-appearance: none;
+    padding: 0 15px;
+    background-color: #fff;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    outline: none;
+}
+.mform li {
+    border-bottom: #e2e2e2 solid 1px;
+    padding: 12px 0 12px 0px;
+    position: relative;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #D5D5D5;
+    font-size: 16px;
+}
+.mform .iconfont {
+    margin-right: 5px;
+    font-size: 20px;
+    color: #D5D5D5;
+}
+.btn-register, .btn-register:hover {
+    color: #898989;
+}
+.btn-login {
+    display: block;
+    letter-spacing: 5px;
+    border-radius: 5px;
+    background: #2ec975;
+    font-size: 15px;
+    padding: 13px 0;
+    text-align: center;
+    color: white;
+}
+#Content0_btn {
+    margin: 70px 5%;
+}
+.partners {
+    text-align: center;
+    font-size: 18px;
+    color: #d7d7d7;
+    margin-top: 0.5em;
+}
+.uList1 li {
+    width: 33.3%;
+    margin-top: 5px;
+    display: inline-block;
+}
+.uList1 li img {
+    width: 40%;
+    height: auto;
+    display: block;
+    margin: auto;
+    max-width: 176px;
+}
+.footerBg {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    background-color: #F5F5F5;
+}
+/*
+手机密码登录*/
+.get_phonepass {
+    background: #fff;
+    color: #ff4259;
+    border: 1px solid #eb4c33;
+    position: absolute;
+    right: 0;
+    top: 0.5em;
+    border-radius: 3px;
+    width: 100px;
+    text-align: center;
+    padding: 0.7em 0;
+}
+.login_style li.selectTag4 i {
+    display: block;
+}
+.login_style li i {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.codevar{
+    position: relative;
+    bottom: 9px;
+}
+/*loading*/
+.loading{
+    border-radius: 10px;
+    background-color:#555555;
+    width: 100px;
+    height:100px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left: -40px;
+    margin-top:-40px ;
+    text-align: center;
+    z-index: 100;
+}
+.loading img{
+    position: relative;
+    top:25px;
+    width: 40px;
+    height:40px;
+}
+.loading div{
+    position: relative;
+    top:30px;
+    color:white;
+}

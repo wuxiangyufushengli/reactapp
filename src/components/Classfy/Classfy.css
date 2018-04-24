@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+html,body{
+  overflow-x: hidden;
+}
+
+div {
+    display: block
+}
+
+.class_head {
+    padding: 0 15px;
+    border-bottom: 1px solid #cbcbcb;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 40px;
+    z-index: 11;
+    background: #fff;
+}
+
+.class_head .head_left {
+    float: left;
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    padding-right: 5%;
+    box-sizing: border-box;
+}
+
+.class_head .head_left span {
+    display: inline-block;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.class_head .head_left span.active {
+    color: #ed4040;
+    border-bottom: 2px solid #ed4040
+}
+
+.class_head .head_right {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    padding-left: 5%;
+    box-sizing: border-box;
+}
+
+.class_head .head_right span {
+    display: inline-block;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.class_head .head_right span.active {
+    color: #ed4040;
+    border-bottom: 2px solid #ed4040
+}
+
+.class_head .head_right .search {
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    height: 14px;
+    width: 14px;
+    line-height: 14px;
+    color: #666
+}
+
+.kindbox {
+    margin-top: 40px;
+}
+
+.kindbox .leftbox {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    overflow-y: scroll;
+    bottom: 0;
+    padding-bottom: 45px;
+    border-right: 5px solid #f3f4f5;
+}
+
+.kindbox .leftbox.bgff {
+    background: #fff
+}
+
+.kindbox .leftbox div {
+    display: block;
+}
+
+.kindbox .leftbox div ul {
+    list-style: none;
+}
+
+.kindbox .leftbox div ul li {
+    padding: 15px 0;
+    border-bottom: 1px solid #f3f4f5;
+    width: 70px;
+    height: 50px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+}
+
+.kindbox .leftbox div ul li.on {
+    background: #f3f4f5;
+    color: #ed4044
+}
+
+.kindbox .rightbox {
+    margin-left: 75px;
+    border-top: 5px solid #f3f4f5;
+    display: block;
+}
+
+.kindbox .rightbox.bgfff {
+    background: #fff
+}
+
+.kindbox .rightbox div {
+    display: block;
+}
+
+.kindbox .rightbox div .bgfff {
+    background: #fff;
+    display: block;
+}
+
+.kindbox .rightbox div .bgfff .hot-recom {
+    padding: 5px 5px 20px;
+    display: block;
+}
+
+.kindbox .rightbox div .bgfff .hot-recom.bbtf3 {
+    border-top: 1px solid #f3f4f5;
+}
+
+.kindbox .rightbox div .bgfff .hot-recom.bbtf3 a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.kindbox .rightbox div .bgfff .hot-recom.bbtf3 a.ft12 {
+    font-size: 12px;
+    color: #999;
+    padding-left: 5px;
+    margin-top: 10px
+}
+
+.kindbox .rightbox div .bgfff .hot-recom.bbtf3 a.db {
+    display: block
+}
+
+.kindbox .rightbox div .bgfff .hot-recom.bbtf3 .clearfix {
+    overflow: hidden;
+    list-style: none;
+}
+
+.kindbox .rightbox div .bgfff .hot-recom.bbtf3 .clearfix .fl {
+    width: 33.33%;
+    padding: 0 5px;
+    margin-top: 10px;
+    float: left;
+    list-style: none;
+}
+
+.kindbox .rightbox div .bgfff .hot-recom.bbtf3 .clearfix .fl .db {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.kindbox .rightbox div .bgfff .hot-recom.bbtf3 .clearfix .fl .db .loadimg-nofixed {
+
+    background-size: 120px auto;
+    position: relative;
+    padding-top: 100%;
+}
+
+.kindbox .rightbox div .bgfff .hot-recom.bbtf3 .clearfix .fl .db .loadimg-nofixed .image {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    border: 0;
+    vertical-align: middle
+}
+
+.kindbox .rightbox div .bgfff .hot-recom.bbtf3 .clearfix .fl .db p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 20px;
+    color: #333;
+    font-size: 13px;
+    margin-top: 10px;
+    text-align: center;
+    display: block
+}
+
+.bandsbox {
+    display: block;
+}
+
+.bandsbox .brand-list {
+    background: #f3f4f5;
+    padding: 45px 0 0;
+    display: block;
+}
+
+.bandsbox .brand-list .wrapper {
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    background: #fff;
+}
+
+.bandsbox .brand-list .wrapper .title {
+    padding-top: 20px;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+}
+
+.bandsbox .brand-list .wrapper .title .c999 {
+    color: #999
+}
+
+.bandsbox .brand-list .wrapper .list {
+    padding: 0 5px;
+}
+
+.bandsbox .brand-list .wrapper .list .clearfix {
+    list-style: none;
+    overflow: hidden;
+}
+
+.bandsbox .brand-list .wrapper .list .clearfix li {
+    margin-top: 20px;
+    width: 33.33%;
+    padding: 0 5px;
+    list-style: none;
+}
+
+.bandsbox .brand-list .wrapper .list .clearfix li.fl {
+    position: relative;
+    float: left;
+}
+
+.bandsbox .brand-list .wrapper .list .clearfix li.fl .block {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.bandsbox .brand-list .wrapper .list .clearfix li.fl .block .img {
+    border: 1px solid #e2e2e2;
+    text-align: center;
+    padding: 50px 10px 10px;
+
+    background-size: 120px auto;
+    height: 50px;
+    position: relative;
+}
+
+.bandsbox .brand-list .wrapper .list .clearfix li.fl .block .img .image {
+    top: 0;
+    left: 0;
+    position: absolute;
+    max-width: 90%;
+    margin: 10px auto 0;
+    height: 40px;
+    right: 0;
+    display: block;
+    border: 0;
+    vertical-align: middle
+}
+
+.bandsbox .brand-list .wrapper .list .clearfix li.fl .name {
+    height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: center;
+    display: block
+}
+
+.bandsbox .brand-list .wrapper .list .clearfix li.fl .address {
+    height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    display: block
+}
