@@ -31,7 +31,6 @@ import PubSub from 'pubsub-js';
 
     render(){
         var {classfys}=this.props;
-        console.log(classfys)
         return(
             <div>
                 <div className="container">

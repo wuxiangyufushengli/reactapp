@@ -59,7 +59,7 @@
     margin: 0em 4% 1em 4%;
     padding: 0 1.6%;
 }
-.mform li input {
+#mform li input {
     height: 21px;
     font-size: 15px;
     border: none;
@@ -77,7 +77,7 @@ input[type="text"] {
     border-radius: 3px;
     outline: none;
 }
-.mform li {
+#mform li {
     border-bottom: #e2e2e2 solid 1px;
     padding: 12px 0 12px 0px;
     position: relative;
@@ -86,7 +86,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     color: #D5D5D5;
     font-size: 16px;
 }
-.mform .iconfont {
+#mform .iconfont {
     margin-right: 5px;
     font-size: 20px;
     color: #D5D5D5;
@@ -147,9 +147,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     text-align: center;
     padding: 0.7em 0;
 }
-.login_style li.selectTag4 i {
-    display: block;
-}
+
 .login_style li i {
     width: 0;
     height: 0;
@@ -190,4 +188,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     position: relative;
     top:30px;
     color:white;
+}
+.slected{
+    display: none;
 }

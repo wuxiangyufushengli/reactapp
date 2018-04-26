@@ -6,7 +6,7 @@ import Classfy from '../Classfy/Classfy';
 import Shopcart from '../Shopcart/Shopcart';
 import Login from '../Login/Login';
 import PubSub from 'pubsub-js';
-
+import BrandAll from '../brandAll/brandAll'
 
 
 
@@ -19,17 +19,7 @@ export default class App extends React.Component{
         }
 
       };
-    //底部隐藏
-       /* show=()=> {
-            PubSub.subscribe('show', (msg, data) => {
-                this.setState({
-                    show: data
-                })
 
-            });
-            console.log(this.state.show)
-
-        }*/
        componentDidMount(){
            PubSub.subscribe('show', (msg, data) => {
                this.setState({
@@ -46,6 +36,7 @@ export default class App extends React.Component{
         return(
             <div>
                 <Switch>
+                    <Route path='/brands' component={BrandAll}/>
                     <Route path='/msite' component={Msite}/>
                     <Route path='/classfy' component={Classfy}/>
                     <Route path='/shopcart' component={Shopcart}/>

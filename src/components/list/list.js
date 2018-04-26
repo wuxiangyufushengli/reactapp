@@ -40,9 +40,7 @@ class List extends React.Component{
 
     render(){
         var {index}=this.state
-        console.log(this.props.classfys)
         var list=this.props.classfys[index]&&this.props.classfys[index].cate_list;
-        console.log(list)
 
         return(
                 <div id="tab1" className="kindbox" >

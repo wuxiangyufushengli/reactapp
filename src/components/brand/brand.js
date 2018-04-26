@@ -3,6 +3,7 @@ import '../Classfy/Classfy.css';
 import {connect} from 'react-redux';
 import {reqbrand} from '../../redux/actions'
 import {NavLink,Switch,Route} from 'react-router-dom';
+import $ from 'jquery'
 
 
 
@@ -14,11 +15,13 @@ import {NavLink,Switch,Route} from 'react-router-dom';
         console.log(this.props.brands)
 
     };
+
+
     render(){
         var {brands}=this.props;
-        console.log(this.props.brands)
         return(
-
+            <div>
+            <div>
                 <div id="tab2" className="bandsbox">
                     <div className="brand-list">
                         {brands?brands.map((brand,index)=>
@@ -42,7 +45,7 @@ import {NavLink,Switch,Route} from 'react-router-dom';
 
                                             )
 
-                                    }
+                                        }
 
 
                                     </ul>
@@ -52,6 +55,13 @@ import {NavLink,Switch,Route} from 'react-router-dom';
 
                     </div>
                 </div>
+                <NavLink to='/brands' onClick={this.isShow}>
+                    <div class="allMenue" >全部</div>
+                </NavLink>
+            </div>
+
+
+            </div>
         )
 
     }

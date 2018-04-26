@@ -3,9 +3,7 @@
     padding: 0;
     box-sizing: border-box
 }
-/*html,body{
-  overflow-x: hidden;
-}*/
+
 
 div {
     display: block
@@ -310,6 +308,150 @@ div {
     text-align: center;
     display: block
 }
+
 .listcontainer{
     height: 600px;
+}
+.allMenue{
+    color:white;
+    font-size: 12px;
+    text-align: center;
+    line-height: 40px;
+    position: fixed;
+    bottom:70px;
+    right:6px;
+    border-radius: 50%;
+    width: 40px;
+    height:40px;
+    background: rgba(0,0,0,.4);
+}
+
+#root{
+    height: 100%;
+
+}
+.bwcontainer{
+    height: 100%;
+}
+.bW{
+
+}
+
+.bW .headerTop1 {
+    overflow-y: hidden;
+    width: 100%;
+    padding: 0 5px;
+    height: 50px;
+    background-color: #fff;
+    line-height: 50px;
+}
+
+.bW .headerTop1 .all {
+    width: 80%;
+    display: inline-block;
+    text-align: center
+}
+
+.bW .headerTop1 #icon {
+    font-size: 23px
+}
+
+.bW #content #item0 .letter {
+    height: 24px;
+    text-indent: 15px;
+    line-height: 24px
+}
+
+.bW #content #item0 div {
+    background-color: #fff;
+}
+
+.bW #content #item0 div a .brand-wrapper {
+    box-sizing: border-box;
+    height: 73px;
+    display: flex;
+    padding: 2% 3%;
+}
+
+.bW #content #item0 div a .brand-wrapper .brand-img {
+    height: 52px;
+    position: relative;
+    border: 1px solid #ff46d2;
+    width: 30%;
+}
+
+.bW #content #item0 div a .brand-wrapper .brand-img img {
+    max-width: 90%;
+    height: 40px;
+    margin: 5px auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0
+}
+
+.bW #content #item0 div a .brand-wrapper .brand-name {
+    padding-left: 20px;
+    height: 52px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.bW #content #item0 div a .brand-wrapper .brand-name .ft14 {
+    font-size: 14px
+}
+
+.bW #content #item0 div a .brand-wrapper .brand-name .ft12 {
+    font-size: 12px
+}
+
+.bW #content #item0 div .line {
+    height: 1px;
+    width: 90%;
+    background-color: #d5dcd4
+}
+
+.l-26 {
+    position:fixed;
+    right: 1px;
+    top:120px;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    color: #666;
+}
+
+.l-26 .letterActive {
+
+    color: #fe3e3e;
+    font-weight: 700
+}
+
+.bW .loading {
+    border-radius: 10px;
+    background-color: #555;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -40px;
+    margin-top: -40px;
+    text-align: center;
+    z-index: 100;
+}
+
+.bW .loading img {
+    position: relative;
+    top: 25px;
+    width: 40px;
+    height: 40px
+}
+
+.bW .loading div {
+    position: relative;
+    top: 30px;
+    color: #fff
 }
