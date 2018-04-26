@@ -130,6 +130,7 @@
 }
 
 .fixHeader .headerBox .navWrap .navList {
+    padding-left: 20px;
     position: absolute;
     top: 0;
     left: 0;
@@ -138,34 +139,39 @@
 }
 
 .fixHeader .headerBox .navWrap .navList li {
-    position: relative;
+
     display: inline-block;
     height: 40px;
-    width: 70px;
     line-height: 40px;
     font-size: 14px;
     text-align: center;
 }
-
+.smallgreen{
+    border-bottom: 2px solid green;
+}
 .fixHeader .headerBox .navWrap .navList li a {
+
+   height: 35px;
+    display: inline-block;
     color: #666
 }
 
-.fixHeader .headerBox .navWrap .navList li.active a {
-    color: #459d36
+.linebottom {
+
 }
 
 .fixHeader .headerBox .navWrap .navList li i {
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    bottom: 0;
-    left: 0;
+
+    left:-30px;
+    bottom:-10px;
+    position: relative;
+    display: inline-block;
+    height: 2px;
+    width:30px
+
 }
 
-.fixHeader .headerBox .navWrap .navList li i.active {
-    background-color: #459d36
-}
+
 
 .allmodule {
     margin-bottom: 50px
@@ -193,6 +199,7 @@
     border: 0
 }
 
+/*
 .banner_item {
     width: 100%;
 
@@ -205,9 +212,11 @@
 
 .banner_item .swiper-container .swiper-wrapper {
     height: 100%;
+    width: 400%;
 }
 
 .banner_item .swiper-container .swiper-wrapper .swiper-slide {
+    float: left;
     height: 100%;
 }
 
@@ -229,7 +238,21 @@
     height: 6px;
     border-radius: 6px
 }
-
+*/
+.swiper-container {
+    width: 100%;
+    height: 160px;
+}
+.swiper-container img{
+    width: 100%;
+}
+.swiper-container {
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
 .new_special {
     width: 100%;
 }
@@ -261,6 +284,7 @@
     text-align: center;
     vertical-align: middle;
     line-height: 20px;
+    margin-top: 4px;
 }
 
 .surprise_day .surprise-tit .tit_right .text {
@@ -277,6 +301,7 @@
     width: 100%;
     height: 140px;
     overflow: hidden;
+    margin-top: 4px;
 }
 
 .surprise_day .surprise-scroll .scroll_wrap {
@@ -284,7 +309,7 @@ overflow: hidden;
 }
 
 .surprise_day .surprise-scroll .scroll_wrap .scroll_first {
-
+      width: 500px;
     overflow: hidden;
 }
 
@@ -292,6 +317,7 @@ overflow: hidden;
 
 
 .surprise_day .surprise-scroll .scroll_wrap .scroll_first .swiper-slide {
+    margin-top: 4px;
     width:97px;
     height: 141px;
     float: left;

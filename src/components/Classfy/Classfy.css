@@ -3,9 +3,9 @@
     padding: 0;
     box-sizing: border-box
 }
-html,body{
+/*html,body{
   overflow-x: hidden;
-}
+}*/
 
 div {
     display: block
@@ -39,7 +39,7 @@ div {
     box-sizing: border-box;
 }
 
-.class_head .head_left span.active {
+.class_head .active>span {
     color: #ed4040;
     border-bottom: 2px solid #ed4040
 }
@@ -84,7 +84,6 @@ div {
     position: fixed;
     top: 40px;
     left: 0;
-    overflow-y: scroll;
     bottom: 0;
     padding-bottom: 45px;
     border-right: 5px solid #f3f4f5;
@@ -120,6 +119,7 @@ div {
 }
 
 .kindbox .rightbox {
+    height: 100%;
     margin-left: 75px;
     border-top: 5px solid #f3f4f5;
     display: block;
@@ -309,4 +309,7 @@ div {
     color: #999;
     text-align: center;
     display: block
+}
+.listcontainer{
+    height: 600px;
 }

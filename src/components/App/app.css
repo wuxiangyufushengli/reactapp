@@ -1,4 +1,5 @@
 .footer1_guide {
+    z-index: 9999;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -39,4 +40,10 @@
 }
 html,body{
     overflow-x: hidden;
+}
+#show{
+    display: block;
+}
+#hide{
+    display: none;
 }

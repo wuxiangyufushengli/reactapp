@@ -1,18 +1,100 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {NavLink,Switch,Route} from 'react-router-dom';
+import {reqhomepage} from '../../redux/actions';
+import {reqHomepage,reqActivity} from '../Msite/../../components/../api/index'
 import './msite.css';
+
+import BScroll from 'better-scroll'
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.min.css';
+import PubSub from 'pubsub-js';
+
 var logo=require('./imgs/closebtn_03.png');
+
 var mydope=require('./imgs/mydope.png');
 
+  class Msite extends React.Component{
+     constructor(props) {
+         super(props);
+         this.state = {
+             menus:[],
+             image:[],
+             saleimgs:[],
+             listimgs:[],
+             datas:[],
+             show:true,
+         };
+     }
+    componentWillMount(){
+
+    };
+     componentDidUpdate(){
+         //轮播
+
+         if(!this.swiper){
+             this.swiper=new Swiper('.banner_item>.swiper-container', {
+                 loop: true,
+                 autoplay: {
+                     disableOnInteraction:false
+                 },
+                 delay: 3000,
+                 pagination: {
+                     el: '.swiper-pagination'
+                 }
+             });
+         };
+         //导航轮播
+         if(!this.scroll){
+             this.scroll= new BScroll('.navWrap', {
+                 scrollX: true
+             })
+         }
+
+         //活动滑动
+         if(!this.scroll2){
+             new BScroll('.scroll_wrap',{
+                 scrollX: true
+             })
+         }
+
+     };
+     componentDidMount(){
+         if(this.props.match.path=='/msite'){
+             PubSub.publish('show',this.state.show)
+         }
+         this.props.reqhomepage()
+         //发请求
+         reqHomepage().then((response)=>{
+          var result=response.data;
+          console.log(result)
+             console.log(result.menus)
+          this.setState({
+              menus:result.menus,
+              image:result.image,
+              listimgs:result.contentimg,
+              datas:result.datas[1].menus
+          })
+
+        });
+         //发请求拿活动的信息
+         reqActivity().then((response)=>{
+             var result=response.data;
+             console.log(result);
+             this.setState({
+                 saleimgs:result.data.info.goods,
+             })
 
 
+         })
 
-export default class Msite extends React.Component{
+
+     };
     render(){
+
         return(
             <div>
                 <div>
-
                     <div className="fixHeader">
                         <div className="xiazaibaApp">
                             <div className="wrapper">
@@ -34,7 +116,7 @@ export default class Msite extends React.Component{
                                 <div className="search">
                                     <a href="#">
                                         <input type="search" placeholder="搜索商品和品牌"/>
-                                            <span className="iSearch iconfont icon-sousuosearch82"></span>
+                                            <span className="iSearch iconfont icon-icon--"></span>
                                     </a>
                                 </div>
                                 <div className="dialog">
@@ -45,30 +127,12 @@ export default class Msite extends React.Component{
                             </div>
                             <nav className="navWrap">
                                 <ul className="navList">
-                                    <li className="active active">
-                                        <a href="javascript:;">首页</a>
-                                        <i className="active"></i>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">猫猫主粮</a>
-                                        <i></i>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">猫猫主粮</a>
-                                        <i></i>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">猫猫主粮</a>
-                                        <i></i>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">猫猫主粮</a>
-                                        <i></i>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">猫猫主粮</a>
-                                        <i></i>
-                                    </li>
+                                    {this.state.menus.map((menu,index)=>
+                                        <li className="active" key={index}>
+                                            <a href="javascript:;" class={index==0?'smallgreen':0}>{menu.menu_name}</a>
+                                            <i className="linebottom"></i>
+                                        </li>
+                                    )}
 
                                 </ul>
                             </nav>
@@ -78,11 +142,15 @@ export default class Msite extends React.Component{
                     <div className="allmodule">
                         <div>
                             <div className="banner_item">
-                                <div className="banner swiper-container">
+                                <div className="swiper-container">
                                     <div className="swiper-wrapper">
-                                        <div className="swiper-slide">
-                                            <img src="https://img2.epetbar.com/nowater/2018-04/20/18/446244f4e2e37200c1511a02706800d9.jpg@!water"/>
-                                        </div>
+                                        {this.state.image.map((img,index)=>
+                                            <div className="swiper-slide" key={index}>
+                                                <img src={img.image}/>
+                                            </div>
+
+                                        )}
+
                                     </div>
                                     <div className="swiper-pagination"></div>
                                 </div>
@@ -91,56 +159,15 @@ export default class Msite extends React.Component{
                             <div className="columnnavdiv">
                                 <div>
                                     <ul className="clearfix hottype">
-                                        <li className="fl" style={{width: '20%',height: '90px'}}>
-                                            <a href="javascript:;">
-                                                <img src="https://img1.epetbar.com/2018-02/02/14/9d335309be26f610a043e3bcc1e84b31.jpg@!water"/>
-                                            </a>
-                                        </li>
-                                        <li className="fl" style={{width: '20%',height: '90px'}}>
-                                            <a href="javascript:;">
-                                                <img src="https://img1.epetbar.com/2018-02/02/14/9d335309be26f610a043e3bcc1e84b31.jpg@!water"/>
-                                            </a>
-                                        </li>
-                                        <li className="fl" style={{width: '20%',height: '90px'}}>
-                                            <a href="javascript:;">
-                                                <img src="https://img1.epetbar.com/2018-02/02/14/9d335309be26f610a043e3bcc1e84b31.jpg@!water"/>
-                                            </a>
-                                        </li>
-                                        <li className="fl" style={{width: '20%',height: '90px'}}>
-                                            <a href="javascript:;">
-                                                <img src="https://img1.epetbar.com/2018-02/02/14/9d335309be26f610a043e3bcc1e84b31.jpg@!water"/>
-                                            </a>
-                                        </li>
-                                        <li className="fl" style={{width: '20%',height: '90px'}}>
-                                            <a href="javascript:;">
-                                                <img src="https://img1.epetbar.com/2018-02/02/14/9d335309be26f610a043e3bcc1e84b31.jpg@!water"/>
-                                            </a>
-                                        </li>
-                                        <li className="fl" style={{width: '20%',height: '90px'}}>
-                                            <a href="javascript:;">
-                                                <img src="https://img1.epetbar.com/2018-02/02/14/9d335309be26f610a043e3bcc1e84b31.jpg@!water"/>
-                                            </a>
-                                        </li>
-                                        <li className="fl" style={{width: '20%',height: '90px'}}>
-                                            <a href="javascript:;">
-                                                <img src="https://img1.epetbar.com/2018-02/02/14/9d335309be26f610a043e3bcc1e84b31.jpg@!water"/>
-                                            </a>
-                                        </li>
-                                        <li className="fl" style={{width: '20%',height: '90px'}}>
-                                            <a href="javascript:;">
-                                                <img src="https://img1.epetbar.com/2018-02/02/14/9d335309be26f610a043e3bcc1e84b31.jpg@!water"/>
-                                            </a>
-                                        </li>
-                                        <li className="fl" style={{width: '20%',height: '90px'}}>
-                                            <a href="javascript:;">
-                                                <img src="https://img1.epetbar.com/2018-02/02/14/9d335309be26f610a043e3bcc1e84b31.jpg@!water"/>
-                                            </a>
-                                        </li>
-                                        <li className="fl" style={{width: '20%',height: '90px'}}>
-                                            <a href="javascript:;">
-                                                <img src="https://img1.epetbar.com/2018-02/02/14/9d335309be26f610a043e3bcc1e84b31.jpg@!water"/>
-                                            </a>
-                                        </li>
+                                        {this.state.datas.map((img,index)=>
+                                            <li className="fl" style={{width: '20%',height: '90px'}} key={index}>
+                                                <a href="javascript:;">
+                                                    <img src={img.image}/>
+                                                </a>
+                                            </li>
+                                        )}
+
+
 
                                     </ul>
                                 </div>
@@ -165,27 +192,17 @@ export default class Msite extends React.Component{
                                     </div>
                                     <div className="surprise-scroll">
                                         <div className="scroll_wrap swiper-container">
-                                            <div className="swiper-wrapper scroll_first">
-                                                <div className="swiper-slide">
-                                                    <img src="https://img1.epetbar.com/2016-07/12/10/a1ce567b8ebbc6e586164682462def69.jpg?x-oss-process=style/fill&$1=300&$2=300"/>
-                                                        <span className="price">￥1.75</span>
-                                                        <span className="huodong">省15.75</span>
-                                                </div>
-                                                <div className="swiper-slide">
-                                                    <img src="https://img1.epetbar.com/2016-07/12/10/a1ce567b8ebbc6e586164682462def69.jpg?x-oss-process=style/fill&$1=300&$2=300"/>
-                                                    <span className="price">￥1.75</span>
-                                                    <span className="huodong">省15.75</span>
-                                                </div>
-                                                <div className="swiper-slide">
-                                                    <img src="https://img1.epetbar.com/2016-07/12/10/a1ce567b8ebbc6e586164682462def69.jpg?x-oss-process=style/fill&$1=300&$2=300"/>
-                                                    <span className="price">￥1.75</span>
-                                                    <span className="huodong">省15.75</span>
-                                                </div>
-                                                <div className="swiper-slide">
-                                                    <img src="https://img1.epetbar.com/2016-07/12/10/a1ce567b8ebbc6e586164682462def69.jpg?x-oss-process=style/fill&$1=300&$2=300"/>
-                                                    <span className="price">￥1.75</span>
-                                                    <span className="huodong">省15.75</span>
-                                                </div>
+                                            <div className="swiper-wrapper1 scroll_first" >
+                                                {this.state.saleimgs.map((img,index)=>
+                                                    <div className="swiper-slide" key={index}>
+                                                        <img src={img.image.image}/>
+                                                        <span className="price">￥{img.sale_price}</span>
+                                                        <span className="huodong">{img.little_price}</span>
+                                                    </div>
+
+                                                )}
+
+
 
                                             </div>
                                         </div>
@@ -223,6 +240,12 @@ export default class Msite extends React.Component{
                                         <div className="swiper-slide">
                                             <img src="https://img2.epetbar.com/nowater/2018-04/22/10/a4d3338694116d5fe9f8bb6980865d35.jpg@!water"/>
                                         </div>
+                                        <div className="swiper-slide">
+                                            <img src="https://img2.epetbar.com/nowater/2018-04/22/10/863ed304cede2304b68f9468e3a5ff4a.jpg@!water"/>
+                                        </div>
+                                        <div className="swiper-slide">
+                                            <img src="https://img1.epetbar.com/2018-04/25/09/76d4351905a120bcf5c0034a66b7d0f3.jpg@!water"/>
+                                        </div>
                                     </div>
                                     <div className="swiper-pagination"></div>
                                 </div>
@@ -243,9 +266,34 @@ export default class Msite extends React.Component{
                                 </div>
                             </div>
                             <div class="imgs">
-                            <img name="750x320" src="https://img2.epetbar.com/nowater/2018-03/21/09/60a17aedde5661ebf6bc998868de6b85.jpg@!water" lazy="loaded" style={{height: '176.64px'}}/>
-                                <img name="750x320" src="https://img2.epetbar.com/nowater/2018-03/21/09/60a17aedde5661ebf6bc998868de6b85.jpg@!water" lazy="loaded" style={{height: '176.64px'}}/>
-                                <img name="750x320" src="https://img2.epetbar.com/nowater/2018-03/21/09/60a17aedde5661ebf6bc998868de6b85.jpg@!water" lazy="loaded" style={{height: '176.64px'}}/>
+                                {this.state.listimgs.map((img,index)=>
+                                    <img name="750x320" src={img.menu_src} style={{height: '176.64px'}} key={index}/>
+                                )}
+                            </div>
+
+                            <div className="custom_tite">
+                                <div className="custom_left">
+                                    <img src="https://img2.epetbar.com/nowater/2018-02/07/10/79d53b0ab1c8a630802d74b5beb0a632.jpg" alt=""/>
+                                </div>
+                                <div className="custom_right">
+                                    <a href="">
+                                        <img src="https://img2.epetbar.com/nowater/2017-12/13/13/22f20febaae655371ef3766612102c0e.jpg" alt=""/>
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="fashion">
+                                <div className="fashion_img">
+                                    <img src="https://img1.epetbar.com/2017-12/13/16/5837d50b4993a5de2aff2b26ce8cf3d5.png?x-oss-process=style/waterfall&$1=500" alt=""/>
+                                </div>
+                                <div className="fashion_info">
+                                    <p>SodaPup 易拉罐漏食狗玩具 口感软弹洁牙护牙</p>
+                                    <p>
+                                        <i className="iconfont icon-yanjing"></i>
+                                        <span>7944</span>
+                                        <span>|</span>
+                                        <span>01:29</span>
+                                    </p>
+                                </div>
                             </div>
 
                             <div className="custom_tite">
@@ -273,54 +321,6 @@ export default class Msite extends React.Component{
                                 </div>
                             </div>
 
-                            <div className="custom_tite">
-                                <div className="custom_left">
-                                    <img src="https://img2.epetbar.com/nowater/2017-12/13/14/77c0017136e51145788b7607a3a0914c.jpg" alt=""/>
-                                </div>
-                                <div className="custom_right">
-                                    <a href="">
-                                        <img src="https://img2.epetbar.com/nowater/2017-12/13/13/22f20febaae655371ef3766612102c0e.jpg" alt=""/>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="fashion">
-                                <div className="fashion_img">
-                                    <img src="https://img1.epetbar.com/2017-12/13/16/5837d50b4993a5de2aff2b26ce8cf3d5.png?x-oss-process=style/waterfall&$1=500" alt=""/>
-                                </div>
-                                <div className="fashion_info">
-                                    <p>SodaPup 易拉罐漏食狗玩具 口感软弹洁牙护牙</p>
-                                    <p>
-                                        <i className="iconfont icon-yanjing"></i>
-                                        <span>7944</span>
-                                        <span>|</span>
-                                        <span>01:29</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="custom_tite">
-                                <div className="custom_left">
-                                    <img src="https://img2.epetbar.com/nowater/2017-12/13/14/77c0017136e51145788b7607a3a0914c.jpg" alt=""/>
-                                </div>
-                                <div className="custom_right">
-                                    <a href="">
-                                        <img src="https://img2.epetbar.com/nowater/2017-12/13/13/22f20febaae655371ef3766612102c0e.jpg" alt=""/>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="fashion">
-                                <div className="fashion_img">
-                                    <img src="https://img1.epetbar.com/2017-12/13/16/5837d50b4993a5de2aff2b26ce8cf3d5.png?x-oss-process=style/waterfall&$1=500" alt=""/>
-                                </div>
-                                <div className="fashion_info">
-                                    <p>SodaPup 易拉罐漏食狗玩具 口感软弹洁牙护牙</p>
-                                    <p>
-                                        <i className="iconfont icon-yanjing"></i>
-                                        <span>7944</span>
-                                        <span>|</span>
-                                        <span>01:29</span>
-                                    </p>
-                                </div>
-                            </div>
 
 
 
@@ -352,3 +352,8 @@ export default class Msite extends React.Component{
 
 
 }
+
+export default connect(
+    //一般数据                              //函数数据
+    state => ({homepage: state.homepage}),{reqhomepage}
+)(Msite);//组件

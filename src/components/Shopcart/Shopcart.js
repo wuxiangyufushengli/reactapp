@@ -1,10 +1,42 @@
 import React from 'react';
 import {NavLink,Switch,Route} from 'react-router-dom'
-import './shopcart.css'
-
+import './shopcart.css';
+import PubSub from 'pubsub-js';
+import $ from 'jquery'
 
 
 export default class Shopcart extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            show:false,
+            isshow:true
+        }
+
+    };
+    show=()=>{
+        var footer=this.refs.footer;
+      this.setState({
+          isshow:!this.state.isshow
+      });
+       if(this.state.isshow){
+           $(footer).addClass('show');
+           $(footer).removeClass('hide');
+       }else{
+           $(footer).addClass('hide');
+           $(footer).removeClass('show');
+       }
+
+
+
+
+
+    };
+    componentWillMount(){
+        if(this.props.match.path=='/shopcart'){
+            PubSub.publish('show',this.state.show)
+        }
+    }
     render(){
         return(
             <div>
@@ -12,10 +44,10 @@ export default class Shopcart extends React.Component{
                     <header className="ftc head-top bgfff zcolor rela">
                         <a href="javascript:void(0)" className="aback page-top go-back iconfont icon-jiantou2"></a>
                     <span className="ft18 topbar-title">购物车</span>
-                    <span className="iconfont icon-tupianliebiao" ></span>
+                    <span className="iconfont icon-tupianliebiao" onClick={this.show}></span>
                </header>
-        <transition name="move">
-            <div className="footer border-1px" v-show="isShow">
+
+            <div ref='footer' className="footer border-1px">
                 <div className="guide">
           <span className="item_icon">
             <i className="iconfont icon-iconsy1"></i>
@@ -41,7 +73,7 @@ export default class Shopcart extends React.Component{
         <span>我的E宠</span>
     </div>
     </div>
-    </transition>
+
         <div id="CartBox">
             <div className="mycart">
                 <div className="m-emptycoupon ftc bgfff" >

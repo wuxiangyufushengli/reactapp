@@ -1,11 +1,25 @@
 import React from 'react';
 import {NavLink,Switch,Route} from 'react-router-dom'
-import './login.css'
+import './login.css';
+import PubSub from 'pubsub-js';
 
 
 
 export default class Login extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            show:false
+        }
+    };
+    componentDidMount(){
+        if(this.props.match.path=='/login'){
+            PubSub.publish('show',this.state.show)
+        }
+
+    };
     render(){
+
         return(
             <div>
                 <header>

@@ -125,3 +125,39 @@
 .move-enter, .move-leave-to {
     height: 0px;
 }
+
+.show{
+    animation-name: show;
+    animation-duration:1s;
+
+}
+/*@keyframes show{
+    from{
+        height:0px;
+    }
+    100%{
+        height: 50px;
+    }
+}
+
+.hide{
+    animation-name: hide;
+    animation-duration:1s;
+
+}
+@keyframes hide{
+    from{
+        height:50px;
+    }
+    100%{
+        height: 0px;
+    }
+}*/
+.show{
+    height: 0;
+    transition-duration: 2s;
+}
+.hide{
+    height: 50px;
+    transition-duration: 2s;
+}
